@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './index.css'
+import { useState } from "react"
+import { useForm } from 'react-hook-form'
+import axios from 'axios'
 
-function App() {
-  const [count, setCount] = useState(0)
+export function App() {
+  const [output, setOutput] = useState('')
+  const { register, handleSubmit } = useForm()
+
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   async function createUser(data: any) {
+    const { email, senha } = data
+ 
+    try {
+      axios.post('http://localhost:4007/create',  { email, senha } )
+      .then(res => console.log(res))
+      
+      setOutput(JSON.stringify(data))      
+    } catch (error) {
+      return error
+    }
+  }
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <form onSubmit={handleSubmit(createUser)}>
+          <label>Email</label>
+          <input type="email"
+            className='bg-slate-400'
+            {...register('email')}
+          />
+
+          <label>Senha</label>
+          <input type="Senha"
+            {...register('senha')}
+          />
+
+          <button type="submit"
+          >Cadastrar
+          </button>
+        </form>
+        <pre>{output}</pre>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
-
-export default App

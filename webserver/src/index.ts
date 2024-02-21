@@ -1,9 +1,11 @@
 import express, { Application } from 'express';
+import cors from 'cors';
 import getAllUsers from './routes/getAllUsers';
 import createUserRouter from './routes/createUserRouter'
 
 const app: Application = express();
 app.use(express.json())
+app.use(cors());
 
 
 //Rotas

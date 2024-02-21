@@ -5,6 +5,6 @@ import { CreateUser } from '../controllers/createUserController';
 
 const createuser = new CreateUser();
 
-router.post('/createUser', createuser.handle)
+router.post('/create', createuser.handle)
 
 export default router
