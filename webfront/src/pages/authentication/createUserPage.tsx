@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { toast } from "sonner"
 
 const createUserFormSchema = z.object({
@@ -12,12 +12,12 @@ const createUserFormSchema = z.object({
     .nonempty('O e-mail é obrigatório!')
     .email('Formato de email inválido!'),
   senha: z.string()
-  .nonempty('A senha é obrigatório!')
+    .nonempty('A senha é obrigatório!')
 })
 
 export function CreateUser() {
   const [output, setOutput] = useState('')
-  const { register, handleSubmit, reset } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: zodResolver(createUserFormSchema)
   })
 
@@ -33,8 +33,10 @@ export function CreateUser() {
 
       toast.success('Usuário criado com sucesso!')
 
-     
-      
+      setTimeout(function () {
+        window.location.href = "/login";
+      }, 2000);
+
     } catch (error) {
       return error
     }
@@ -77,8 +79,8 @@ export function CreateUser() {
               </div>
 
               <div>
-                <button type="submit" 
-                className="flex w-full justify-center rounded-md bg-indigo-600
+                <button type="submit"
+                  className="flex w-full justify-center rounded-md bg-indigo-600
                              px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 
                              focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
                              focus-visible:outline-indigo-600">Cadastrar</button>

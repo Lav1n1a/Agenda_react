@@ -4,7 +4,7 @@ import { prisma } from '../database/prismaClient'
  export class CreateUser {
     
     async handle(req: Request, res: Response) {
-        console.log('chegou aqui', req.body)
+    
         try{
         const { email, senha } = req.body
 
@@ -14,14 +14,12 @@ import { prisma } from '../database/prismaClient'
                 senha
             }
         })
+
         console.log(user)
         return res.json(user)
 
-        }catch{
-            (err: any) => {
-                console.log(err)
-                res.status(500)
-            }
+        }catch(err){
+            console.log(err);
         }
     }
 }

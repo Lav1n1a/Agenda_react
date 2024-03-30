@@ -1,6 +1,39 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from "react-router-dom"
+import axios from 'axios'
+import { useForm } from 'react-hook-form'
+import { ToastContainer } from 'react-toastify';
+import { toast } from "sonner"
+
 
 export function Login() {
+    const { register, handleSubmit } = useForm();
+
+
+    async function onLogin(data: any) {
+        const { email, senha } = data;
+
+        console.log(data);
+
+        try {
+            await axios.post('http://localhost:4007/getuser', { email, senha })
+
+            toast.success('Login feito com sucesso!');
+
+            setTimeout(function () {
+                window.location.href = "/home";
+            }, 2000);
+
+        } catch (err) {
+            if (err.response && err.response.data && err.response.data.error) {
+                toast.error(err.response.data.error); // Exibe o erro específico retornado pelo backend
+            } else {
+                console.log(err); // Se não houver uma resposta com a propriedade 'error', imprime o erro completo
+                toast.error('Erro ao realizar login');
+            }
+        }
+    }
+
     return (
         <>
             <div className="h-screen flex flex-col">
@@ -10,13 +43,15 @@ export function Login() {
                 </div>
                 <div className="h-screen flex items-center justify-center">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                        <form className="space-y-6" action="#" method="POST">
+                        <form className="space-y-6" onSubmit={handleSubmit(onLogin)}>
                             <div>
                                 <label className="block text-sm font-medium leading-6 text-white">E-mail</label>
                                 <div className="mt-2">
-                                    <input id="email" name="email" type="email" required className="block w-full rounded-md border-0 py-1.5
+                                    <input id="email" type="email" required className="block w-full rounded-md border-0 py-1.5
                                  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset 
-                                 focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                                 focus:ring-indigo-600 sm:text-sm sm:leading-6 text-black"
+                                        {...register('email')}
+                                    />
                                 </div>
                             </div>
 
@@ -28,9 +63,10 @@ export function Login() {
                                     </div>
                                 </div>
                                 <div className="mt-2">
-                                    <input id="password" name="password" type="password" required
+                                    <input id="password" type="password" required
                                         className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300
-                                 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                                 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-black"
+                                        {...register('senha')} />
                                 </div>
                             </div>
 
@@ -48,6 +84,7 @@ export function Login() {
                         </p>
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         </>
     )
