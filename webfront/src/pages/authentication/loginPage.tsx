@@ -16,7 +16,11 @@ export function Login() {
         console.log(data);
 
         try {
-            await axios.post('http://localhost:4007/getuser', { email, senha })
+            const response = await axios.post('http://localhost:4007/getuser', { email, senha })
+            const { accessToken } = response.data;
+
+            // Armazene o token JWT localmente
+            localStorage.setItem('accessToken', accessToken);
 
             toast.success('Login feito com sucesso!');
 

@@ -26,6 +26,7 @@ export class GetUser {
             if(getuser.senha != senha){
                 return res.status(404).json({ error: 'Senha incorreta' });
             }else {
+
                 return res.json(getuser);
             }
             
