@@ -23,7 +23,6 @@ export function Home() {
 
     return (
         <>
-
             <SideBar />
 
             <div className="p-4 sm:ml-64">
