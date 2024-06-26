@@ -22,12 +22,12 @@ export function SideBar() {
                                 <span className="flex-1 ms-3 whitespace-nowrap">Meu Perfil</span>
                             </a>
                         </li>
-                        <li>
+                        {/* <li>
                             <a href="/agendar" className="flex items-center p-2 text-slate-50 rounded-lg hover:bg-gray-100 hover:text-gray-800">
                                 <FaCalendarAlt className='text-slate-50'/>
                                 <span className="flex-1 ms-3 whitespace-nowrap">Agendar</span>
                             </a>
-                        </li>
+                        </li> */}
                         <li>
                             <a href="/agendamentos" className="flex items-center p-2 text-slate-50 rounded-lg hover:bg-gray-100 hover:text-gray-800">
                                 <FaClipboard className='text-slate-50'/>
