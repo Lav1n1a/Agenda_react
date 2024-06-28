@@ -1,6 +1,7 @@
-import React from 'react'; 
+import React from 'react';
 import axios from 'axios'
 import { SideBar } from './sideBar';
+import { Header } from './header';
 
 export function Home() {
 
@@ -24,16 +25,8 @@ export function Home() {
     return (
         <>
             <SideBar />
-
-            <div className="p-4 sm:ml-64">
-                <div className="flex gap-x-10 p-72 m-auto text-lg">
-                    <button className="text-left md:text-center bg-slate-950 p-5">
-                        Agendar
-                    </button>
-                    <button className="text-left md:text-center bg-slate-950 p-5">
-                        Meus Agendamentos
-                    </button>
-                </div>
+            <div className="sm:ml-72 bg-slate-100 h-screen">
+                <Header />
             </div>
 
 

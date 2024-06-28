@@ -25,10 +25,13 @@ export function CreateUser() {
   async function createUser(data: any) {
     const { email, senha } = data
 
-    console.log(output)
-
     try {
-      await axios.post('http://localhost:4007/create', { email, senha })
+
+      await axios.post('http://localhost:4007/create', { email, senha },{
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        }
+      })
         .then(res => console.log(res))
 
       toast.success('Usuário criado com sucesso!')
@@ -46,7 +49,7 @@ export function CreateUser() {
     <>
       <div className="h-screen flex flex-col">
         <div className="pt-4 px-4">
-          <Link to='/' className=" text-slate-50">
+          <Link to='/' className=" text-slate-50 no-underline">
             <span aria-hidden="true" className="m-1">&larr;</span>Página Inicial</Link>
         </div>
 

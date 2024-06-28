@@ -17,10 +17,11 @@ export function Login() {
 
         try {
             const response = await axios.post('http://localhost:4007/getuser', { email, senha })
-            const { accessToken } = response.data;
+            const { accessToken,refreshToken } = response.data;
 
             // Armazene o token JWT localmente
             localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('refreshToken', refreshToken);
 
             toast.success('Login feito com sucesso!');
 
@@ -42,7 +43,7 @@ export function Login() {
         <>
             <div className="h-screen flex flex-col">
                 <div className="pt-4 px-4">
-                    <Link to='/' className=" text-slate-50">
+                    <Link to='/' className=" text-slate-50 no-underline">
                         <span aria-hidden="true" className="m-1">&larr;</span>Página Inicial</Link>
                 </div>
                 <div className="h-screen flex items-center justify-center">
@@ -63,7 +64,7 @@ export function Login() {
                                 <div className="flex items-center justify-between">
                                     <label className="block text-sm font-medium leading-6">Senha</label>
                                     <div className="text-sm">
-                                        <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">Esqueceu a senha?</a>
+                                        <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500 no-underline">Esqueceu a senha?</a>
                                     </div>
                                 </div>
                                 <div className="mt-2">
@@ -84,7 +85,7 @@ export function Login() {
 
                         <p className="mt-10 text-center text-sm text-gray-500 d-flex flex gap-2 justify-center">
                             Não possui uma conta?
-                            <Link to="/create" className="font-semibold text-indigo-600 hover:text-indigo-500">Cadastre-se</Link>
+                            <Link to="/create" className="font-semibold text-indigo-600 hover:text-indigo-500 no-underline">Cadastre-se</Link>
                         </p>
                     </div>
                 </div>

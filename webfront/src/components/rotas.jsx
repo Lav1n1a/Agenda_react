@@ -3,7 +3,6 @@ import { PagIndex } from '../pages/index'
 import { CreateUser } from '../pages/authentication/createUserPage';
 import { Login } from '../pages/authentication/loginPage';
 import { Home } from '../pages/home';
-import { Agendar } from '../pages/agendar/agendarPage';
 import { Agendamentos } from '../pages/meusAgendamentos/meusAgendamentosPage';
 import { Perfil } from '../pages/perfil/perfilPage';
 
@@ -16,7 +15,6 @@ export function Rotas() {
           <Route path='/create' Component={CreateUser} />
           <Route path='/login' Component={Login}/>
           <Route path='/home' Component={Home}/>
-          <Route path='/agendar' Component={Agendar}/>
           <Route path='/agendamentos' Component={Agendamentos}/>
           <Route path='/perfil' Component={Perfil}/>
         </Routes>
