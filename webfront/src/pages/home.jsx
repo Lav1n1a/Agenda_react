@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios'
-import { SideBar } from './sideBar';
-import { Header } from './header';
+import { SideBar } from './components/sideBar';
+import { Header } from './components/header';
 
 export function Home() {
 
@@ -27,6 +27,9 @@ export function Home() {
             <SideBar />
             <div className="sm:ml-72 bg-slate-100 h-screen">
                 <Header />
+                <body className='p-5 bg-slate-100'>
+                    
+                </body>
             </div>
 
 

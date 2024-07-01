@@ -1,4 +1,4 @@
-import { SideBar } from "../sideBar"
+import { SideBar } from "../components/sideBar"
 import { FaUser } from "@react-icons/all-files/fa/FaUser";
 import { useState } from 'react';
 import { Modal, Button, Card } from 'react-bootstrap';

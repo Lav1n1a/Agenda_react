@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Modal, Button, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { SideBar } from '../sideBar';
-import { Header } from '../header';
+import { SideBar } from '../components/sideBar';
+import { Header } from '../components/header';
 import { FaUser } from "@react-icons/all-files/fa/FaUser";
 
 export function Agendamentos() {
@@ -74,21 +74,21 @@ export function Agendamentos() {
                                     <div className="flex flex-col gap-3 w-[100%]">
                                         <label className="flex flex-row gap-1">
                                             <p>Especialidades:</p>
-                                            <input type="select" name="especialidades" className="text-black border-solid border-1 w-[100%] rounded-md " defaultValue={['orange', 'banana']} />
+                                            <input type="select" name="especialidades" className="text-black border-solid border-1 w-[100%] rounded-md p-2" defaultValue={['orange', 'banana']} />
                                         </label>
                                         <div className="flex flex-row gap-2" >
                                             <label className="flex flex-row gap-1 w-[50%]">
                                                 <p>Dia:</p>
-                                                <input type="date" name="dia" className="text-black border-solid border-1 w-[100%] text-center rounded-md" />
+                                                <input type="date" name="dia" className="text-black border-solid border-1 w-[100%] text-center rounded-md p-2" />
                                             </label>
                                             <label className="flex flex-row gap-1 w-[50%]">
                                                 <p>Hora:</p>
-                                                <input type="time" name="hora" className="text-black border-solid border-1 w-[100%] text-center rounded-md" />
+                                                <input type="time" name="hora" className="text-black border-solid border-1 w-[100%] text-center rounded-md p-2" />
                                             </label>
                                         </div>
                                         <label className="flex flex-col">
                                             <p>Observações:</p>
-                                            <textarea placeholder="Digite seus sintomas..." rows="4" cols="50" className="text-black border-solid border-1 rounded-md" />
+                                            <textarea placeholder="Digite seus sintomas..." rows="4" cols="50" className="text-black border-solid border-1 rounded-md p-2" />
                                         </label>
 
                                     </div>

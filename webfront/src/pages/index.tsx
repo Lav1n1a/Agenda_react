@@ -14,10 +14,10 @@ export function PagIndex() {
               </a>
             </div>
             <div className="hidden lg:flex lg:gap-x-12">
-              <Link to='/' className="font-semibold text-lg text-slate-50 no-underline">Home</Link>
-              <a href="#" className="font-semibold text-lg text-salte-50 no-underline">Sobre o site</a>
-              <a href="#" className="font-semibold text-lg text-slate-50 no-underline">Como funciona?</a>
-              <a href="#" className="font-semibold text-lg text-salte-50 no-underline">GitHub</a>
+              <Link to='/' className="font-semibold text-lg text-slate-50 no-underline">Página Inicial</Link>
+              <a href="/sobre-o-site" className="font-semibold text-lg text-slate-50 no-underline">Sobre o Site</a>
+              <a href="/como-funciona" className="font-semibold text-lg text-slate-50 no-underline">Como funciona?</a>
+              <a href="https://github.com/Lav1n1a" target="_blank" className="font-semibold text-lg text-slate-50 no-underline">GitHub</a>
             </div>
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
               <Link to='/login' className=" block rounded-lg px-3 py-2.5 text-base font-semibold text-lg text-slate-50 no-underline">

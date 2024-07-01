@@ -1,5 +1,5 @@
 import './index.css'
-import { Rotas } from './components/rotas.jsx'
+import { Rotas } from './rotas.jsx'
 
 
 export function App() {
